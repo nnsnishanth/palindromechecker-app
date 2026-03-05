@@ -1,33 +1,42 @@
 import java.util.Scanner;
 
-public class PalindromeCheckerApp {
+// Service class that contains palindrome logic
+class PalindromeChecker {
 
-    public static void main(String[] args) {
-
-        System.out.println("Welcome to Palindrome Checker App - Usecase 10");
-
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Enter a sentence: ");
-        String input = sc.nextLine();
-
-        // Normalize string: remove spaces & convert to lowercase
-        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+    // Encapsulated method
+    public boolean checkPalindrome(String input) {
 
         int start = 0;
-        int end = normalized.length() - 1;
-        boolean isPalindrome = true;
+        int end = input.length() - 1;
 
         while (start < end) {
-            if (normalized.charAt(start) != normalized.charAt(end)) {
-                isPalindrome = false;
-                break;
+            if (input.charAt(start) != input.charAt(end)) {
+                return false;
             }
             start++;
             end--;
         }
+        return true;
+    }
+}
 
-        if (isPalindrome) {
+public class PalindromeCheckerApp {
+
+    public static void main(String[] args) {
+
+        System.out.println("Welcome to Palindrome Checker App - Usecase 11");
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a word: ");
+        String input = sc.nextLine();
+
+        // Using OOPS service class
+        PalindromeChecker checker = new PalindromeChecker();
+
+        boolean result = checker.checkPalindrome(input);
+
+        if (result) {
             System.out.println("Palindrome");
         } else {
             System.out.println("Not Palindrome");
@@ -36,4 +45,3 @@ public class PalindromeCheckerApp {
         sc.close();
     }
 }
-
