@@ -1,38 +1,33 @@
+import java.util.Scanner;
 
-    /**
-     * UseCase1PalindromeCheckerApp
-     * -----------------------------------
-     * Palindrome Checker Application
-     * Version: 1.0
-     * @author: nnsnishanth
-     * UC1: Application Entry & Welcome Message
-     */
+public class PalindromeCheckerApp {
 
-    public class PalindromeCheckerApp {
+    public static void main(String[] args) {
 
-        // Application constants
-        private static final String APP_NAME = "Palindrome Checker App";
-        private static final String APP_VERSION = "Version 1.0";
+        System.out.println("Welcome to Palindrome Checker App - Usecase 3");
 
-        /**
-         * Main method - Entry point of the application
-         * JVM invokes this method automatically.
-         */
-        public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-            // Display welcome message
-            System.out.println("========================================");
-            System.out.println("        " + APP_NAME);
-            System.out.println("        " + APP_VERSION);
-            System.out.println("========================================");
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
 
-            System.out.println("\nWelcome to the Palindrome Checker Application!");
-            System.out.println("This application will help you verify whether");
-            System.out.println("a given string is a palindrome.\n");
+        int original = num;
+        int reverse = 0;
 
-            // Application flow continues to next use case
-            System.out.println("Application started successfully...");
+
+        while (num != 0) {
+            int digit = num % 10;
+            reverse = reverse * 10 + digit;
+            num = num / 10;
         }
-    }
 
+        if (original == reverse) {
+            System.out.println("Palindrome Number");
+        } else {
+            System.out.println("Not Palindrome Number");
+        }
+
+        sc.close();
+    }
+}
 
